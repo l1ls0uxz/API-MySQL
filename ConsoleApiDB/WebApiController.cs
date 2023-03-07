@@ -16,13 +16,13 @@ namespace ConsoleApiDB
     {
         // Connect MySQL Database
         string datareturn;
-        string connStr = "server=127.0.0.1;user=root;database=demodb;port=3306;password=0546";
+        string connStr = "server=127.0.0.1;user=root;database=demohmiconnectpc1;port=3306;password=0546";
 
         // GET api/webapi/name
         [Route("api/{controller}/{name}")]
         public string GetItemByName(string name)
         {
-            string query = "select * from " + $"{name}";
+            string query = "select * from " + $"{name} limit 1000";
 
             DataTable table = new DataTable();
             MySqlDataReader myReader;
@@ -69,7 +69,6 @@ namespace ConsoleApiDB
         // POST api/webapi
         public void Post([FromBody] string value)
         {
-            
         }
 
         // PUT api/webapi/5 

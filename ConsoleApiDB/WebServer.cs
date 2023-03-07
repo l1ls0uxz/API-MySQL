@@ -12,7 +12,7 @@ namespace ConsoleApiDB
         private IDisposable _disposed;
         public void Start()
         {
-            _disposed = WebApp.Start<Startup>("http://localhost:8080");
+            _disposed = WebApp.Start<Startup>("http://localhost:12345");
         }
         public void Stop()
         {

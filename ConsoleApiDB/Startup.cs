@@ -17,7 +17,7 @@ namespace ConsoleApiDB
             app.Use(async (context, next) =>
             {
                 // Add Header
-                context.Response.Headers["Product"] = "Web Api v1";
+                context.Response.Headers["Product"] = "Api for MySQL Database v1";
 
                 // Call next middleware
                 await next.Invoke();

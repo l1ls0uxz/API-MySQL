@@ -19,9 +19,9 @@ namespace ConsoleApiDB
             using (WebApp.Start<Startup>("http://localhost:12345"))
             {
                 Console.WriteLine(" /-------------------------------------------------/");
-                Console.WriteLine(" / Web server is running at http://localhost:12345 /");
+                Console.WriteLine(" /   Server is running at http://localhost:12345   /");
                 Console.WriteLine(" /                                                 /");
-                Console.WriteLine(" / Press Ctrl + C to quit.                         /");
+                Console.WriteLine(" /   Press Ctrl + C to quit.                       /");
                 Console.WriteLine(" /-------------------------------------------------/");
                 Console.ReadLine();
             }        
