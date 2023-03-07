@@ -18,11 +18,11 @@ namespace ConsoleApiDB
             // Localhost
             using (WebApp.Start<Startup>("http://localhost:12345"))
             {
-                Console.WriteLine(" /-------------------------------------------------/");
-                Console.WriteLine(" /   Server is running at http://localhost:12345   /");
-                Console.WriteLine(" /                                                 /");
-                Console.WriteLine(" /   Press Ctrl + C to quit.                       /");
-                Console.WriteLine(" /-------------------------------------------------/");
+                Console.WriteLine(" ||-------------------------------------------------||");
+                Console.WriteLine(" ||   Server is running at http://localhost:12345   ||");
+                Console.WriteLine(" ||                                                 ||");
+                Console.WriteLine(" ||   Press Ctrl + C to quit.                       ||");
+                Console.WriteLine(" ||-------------------------------------------------||");
                 Console.ReadLine();
             }        
         }
