@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Connection;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Results;
+using System.IO.Compression;
+using System.IO;
+using ConsoleApiDB.Filters;
 
 namespace ConsoleApiDB
 {
     public class WebApiController : ApiController
     {
+        
+
         // Connect MySQL Database
         string datareturn;
-        string connStr = "server=127.0.0.1;user=root;database=demohmiconnectpc1;port=3306;password=0546";
+        string connStr = "server=127.0.0.1;user=root;database=demodb;port=3306;password=0546";
 
         // GET api/webapi/name
         [Route("api/{controller}/{name}")]
+        [GzipCompressionAtribute]
         public string GetItemByName(string name)
         {
-            string query = "select * from " + $"{name} limit 1000";
+
+            string query = "select * from " + $"{name}";
 
             DataTable table = new DataTable();
             MySqlDataReader myReader;
@@ -44,6 +52,7 @@ namespace ConsoleApiDB
 
         // GET api/webapi/name/id
         [Route("api/{controller}/{name}/{id}")]
+        [GzipCompressionAtribute]
         public string GetItemByNameAndId(string name, int id)
         {
             string query = "select * from " + $"{name}" + " where id = " + $"{id}";
@@ -64,6 +73,7 @@ namespace ConsoleApiDB
 
             datareturn = JsonConvert.SerializeObject(table);
             return datareturn;
+
         }
 
         // POST api/webapi
