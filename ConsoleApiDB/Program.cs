@@ -6,11 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Topshelf;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace ConsoleApiDB
 {
-    internal class Program
+    public class Program : Form
     {
+        public Program() 
+        {
+            
+        }
+
+        [STAThread]
         static void Main(string[] args)
         {
             //StartTopshelf();
@@ -24,7 +33,24 @@ namespace ConsoleApiDB
                 Console.WriteLine(" ||   Press Ctrl + C to quit.                       ||");
                 Console.WriteLine(" ||-------------------------------------------------||");
                 Console.ReadLine();
-            }        
+            }
+
+            //
+            Application.EnableVisualStyles();
+            Application.Run(new Program());
+            Application.SetCompatibleTextRenderingDefault(false);
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Program
+            // 
+            this.ClientSize = new System.Drawing.Size(614, 440);
+            this.Name = "Program";
+            this.ResumeLayout(false);
+
         }
 
         // Topshelf
