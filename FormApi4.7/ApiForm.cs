@@ -40,7 +40,6 @@ namespace FormApi4._7
             dynamic data = JsonConvert.DeserializeObject(responseBody);
             MessageBox.Show(JsonConvert.SerializeObject(data, Formatting.Indented));
             dtView.DataSource = data;
-
         }
 
         private void ApiForm_Load(object sender, EventArgs e)
