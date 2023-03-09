@@ -22,7 +22,6 @@ namespace ConsoleApiDB
         [STAThread]
         static void Main(string[] args)
         {
-            //StartTopshelf();
 
             // Localhost
             using (WebApp.Start<Startup>("http://localhost:12345"))

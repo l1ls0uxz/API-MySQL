@@ -18,8 +18,6 @@ namespace FormApi4._7
 {
     public class WebApiController : ApiController
     {
-        
-
         // Connect MySQL Database
         string datareturn;
         string connStr = "server=127.0.0.1;user=root;database=demodb;port=3306;password=0546";
