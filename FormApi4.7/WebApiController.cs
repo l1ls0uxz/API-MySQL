@@ -12,14 +12,12 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using System.IO.Compression;
 using System.IO;
-using ConsoleApiDB.Filters;
+using FormApi4._7.Filters;
 
-namespace ConsoleApiDB
+namespace FormApi4._7
 {
     public class WebApiController : ApiController
     {
-        
-
         // Connect MySQL Database
         string datareturn;
         string connStr = "server=127.0.0.1;user=root;database=demodb;port=3306;password=0546";

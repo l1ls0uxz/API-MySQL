@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http.Filters;
 
-namespace ConsoleApiDB.Filters
+namespace FormApi4._7.Filters
 {
     public class GzipCompressionAtribute : ActionFilterAttribute
     {

@@ -22,7 +22,6 @@ namespace ConsoleApiDB
         [STAThread]
         static void Main(string[] args)
         {
-            //StartTopshelf();
 
             // Localhost
             using (WebApp.Start<Startup>("http://localhost:12345"))
@@ -49,7 +48,13 @@ namespace ConsoleApiDB
             // 
             this.ClientSize = new System.Drawing.Size(614, 440);
             this.Name = "Program";
+            this.Load += new System.EventHandler(this.Program_Load);
             this.ResumeLayout(false);
+
+        }
+
+        private void Program_Load(object sender, EventArgs e)
+        {
 
         }
 
