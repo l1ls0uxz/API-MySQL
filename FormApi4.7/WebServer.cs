@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApiDB
+namespace FormApi4._7
 {
     internal class WebServer
     {
