@@ -24,7 +24,7 @@ namespace FormApi4._7
 
         // GET api/webapi/name
         [Route("api/{controller}/{name}")]
-        [GzipCompressionAtribute]
+        //[GzipCompressionAtribute]
         public string GetItemByName(string name)
         {
 
@@ -50,7 +50,7 @@ namespace FormApi4._7
 
         // GET api/webapi/name/id
         [Route("api/{controller}/{name}/{id}")]
-        [GzipCompressionAtribute]
+        //[GzipCompressionAtribute]
         public string GetItemByNameAndId(string name, int id)
         {
             string query = "select * from " + $"{name}" + " where id = " + $"{id}";

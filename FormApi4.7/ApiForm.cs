@@ -15,11 +15,13 @@ using MySqlX.XDevAPI;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Security.Policy;
+using MySqlX.XDevAPI.Relational;
 
 namespace FormApi4._7
 {
     public partial class ApiForm : Form
     {
+        string datareturn;
         public ApiForm()
         {
             InitializeComponent();
@@ -28,18 +30,18 @@ namespace FormApi4._7
         private async void btnGet_Click(object sender, EventArgs e)
         {
             //HttpClient clientt = new HttpClient();
-            //clientt.BaseAddress = new Uri("http://localhhost:13245/api/webapi/coder");
+            //clientt.BaseAddress = new Uri("http://localhost:13245/api/webapi/coder");
             //HttpResponseMessage response = clientt.GetAsync("coder").Result;
-            //var responce = await Helper.GetAll();
-            //txtRes.Text = Helper.BeautifyJson(responce);
+            var responce = await Helper.GetAll();
+            dtView.Text = Helper.BeautifyJson(responce);
 
-            string url = "https://localhost:12345/api/webapi/coder";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(url);
-            string responseBody = await response.Content.ReadAsStringAsync();
-            dynamic data = JsonConvert.DeserializeObject(responseBody);
-            MessageBox.Show(JsonConvert.SerializeObject(data, Formatting.Indented));
-            dtView.DataSource = data;
+            //string url = "https://localhost:12345/api/webapi/coder";
+            //HttpClient client = new HttpClient();
+            //HttpResponseMessage response = await client.GetAsync(url);
+            //string responseBody = await response.Content.ReadAsStringAsync();
+            //dynamic data = JsonConvert.DeserializeObject(responseBody);
+            //MessageBox.Show(JsonConvert.SerializeObject(data, Formatting.Indented));
+            //dtView.DataSource = data;
         }
 
         private void ApiForm_Load(object sender, EventArgs e)

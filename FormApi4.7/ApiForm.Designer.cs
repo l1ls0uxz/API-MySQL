@@ -29,22 +29,21 @@
         private void InitializeComponent()
         {
             this.grbButton = new System.Windows.Forms.GroupBox();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.cbxTime = new System.Windows.Forms.ComboBox();
             this.ckbReport = new System.Windows.Forms.CheckBox();
-            this.dateTo = new System.Windows.Forms.DateTimePicker();
-            this.dateFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateSelect = new System.Windows.Forms.DateTimePicker();
             this.btnGet = new System.Windows.Forms.Button();
-            this.dtView = new System.Windows.Forms.DataGridView();
+            this.dtView = new System.Windows.Forms.RichTextBox();
+            this.cbxName = new System.Windows.Forms.ComboBox();
             this.grbButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtView)).BeginInit();
             this.SuspendLayout();
             // 
             // grbButton
             // 
-            this.grbButton.Controls.Add(this.txtID);
+            this.grbButton.Controls.Add(this.cbxName);
+            this.grbButton.Controls.Add(this.cbxTime);
             this.grbButton.Controls.Add(this.ckbReport);
-            this.grbButton.Controls.Add(this.dateTo);
-            this.grbButton.Controls.Add(this.dateFrom);
+            this.grbButton.Controls.Add(this.dateSelect);
             this.grbButton.Controls.Add(this.btnGet);
             this.grbButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbButton.Location = new System.Drawing.Point(12, 462);
@@ -55,41 +54,35 @@
             this.grbButton.Text = "Group";
             this.grbButton.Enter += new System.EventHandler(this.grbButton_Enter);
             // 
-            // txtID
+            // cbxTime
             // 
-            this.txtID.Location = new System.Drawing.Point(700, 37);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 21);
-            this.txtID.TabIndex = 4;
+            this.cbxTime.FormattingEnabled = true;
+            this.cbxTime.Location = new System.Drawing.Point(684, 37);
+            this.cbxTime.Name = "cbxTime";
+            this.cbxTime.Size = new System.Drawing.Size(121, 23);
+            this.cbxTime.TabIndex = 5;
             // 
             // ckbReport
             // 
             this.ckbReport.AutoSize = true;
-            this.ckbReport.Location = new System.Drawing.Point(25, 37);
+            this.ckbReport.Location = new System.Drawing.Point(25, 39);
             this.ckbReport.Name = "ckbReport";
             this.ckbReport.Size = new System.Drawing.Size(63, 19);
             this.ckbReport.TabIndex = 3;
             this.ckbReport.Text = "Report";
             this.ckbReport.UseVisualStyleBackColor = true;
             // 
-            // dateTo
+            // dateSelect
             // 
-            this.dateTo.Location = new System.Drawing.Point(439, 37);
-            this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(210, 21);
-            this.dateTo.TabIndex = 2;
-            // 
-            // dateFrom
-            // 
-            this.dateFrom.Location = new System.Drawing.Point(182, 37);
-            this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(210, 21);
-            this.dateFrom.TabIndex = 1;
+            this.dateSelect.Location = new System.Drawing.Point(390, 38);
+            this.dateSelect.Name = "dateSelect";
+            this.dateSelect.Size = new System.Drawing.Size(210, 21);
+            this.dateSelect.TabIndex = 2;
             // 
             // btnGet
             // 
             this.btnGet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGet.Location = new System.Drawing.Point(869, 24);
+            this.btnGet.Location = new System.Drawing.Point(869, 23);
             this.btnGet.Name = "btnGet";
             this.btnGet.Size = new System.Drawing.Size(80, 50);
             this.btnGet.TabIndex = 0;
@@ -99,14 +92,19 @@
             // 
             // dtView
             // 
-            this.dtView.AllowUserToAddRows = false;
-            this.dtView.AllowUserToDeleteRows = false;
-            this.dtView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtView.Location = new System.Drawing.Point(12, 12);
             this.dtView.Name = "dtView";
-            this.dtView.ReadOnly = true;
             this.dtView.Size = new System.Drawing.Size(960, 444);
             this.dtView.TabIndex = 1;
+            this.dtView.Text = "";
+            // 
+            // cbxName
+            // 
+            this.cbxName.FormattingEnabled = true;
+            this.cbxName.Location = new System.Drawing.Point(183, 37);
+            this.cbxName.Name = "cbxName";
+            this.cbxName.Size = new System.Drawing.Size(121, 23);
+            this.cbxName.TabIndex = 6;
             // 
             // ApiForm
             // 
@@ -121,7 +119,6 @@
             this.Load += new System.EventHandler(this.ApiForm_Load);
             this.grbButton.ResumeLayout(false);
             this.grbButton.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -130,11 +127,11 @@
 
         private System.Windows.Forms.GroupBox grbButton;
         private System.Windows.Forms.Button btnGet;
-        private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.CheckBox ckbReport;
-        private System.Windows.Forms.DateTimePicker dateTo;
-        private System.Windows.Forms.DataGridView dtView;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.DateTimePicker dateSelect;
+        private System.Windows.Forms.RichTextBox dtView;
+        private System.Windows.Forms.ComboBox cbxTime;
+        private System.Windows.Forms.ComboBox cbxName;
     }
 }
 
