@@ -13,6 +13,7 @@ using System.Web.Http.Results;
 using System.IO.Compression;
 using System.IO;
 using ConsoleApiDB.Filters;
+using System.Xml.Linq;
 
 namespace ConsoleApiDB
 {
@@ -22,15 +23,14 @@ namespace ConsoleApiDB
 
         // Connect MySQL Database
         string datareturn;
-        string connStr = "server=127.0.0.1;user=root;database=demodb;port=3306;password=0546";
+        string connStr = "server=127.0.0.1;user=root;database=demohmiconnectpc1;port=3306;password=0546";
 
         // GET api/webapi/name
-        [Route("api/{controller}/{name}")]
-        [GzipCompressionAtribute]
-        public string GetItemByName(string name)
+        [Route("api/{controller}/{name}/{date}")]
+        public string GetItemByName(string name, string date)
         {
 
-            string query = "select * from " + $"{name}";
+            string query = "SELECT DATE_FORMAT(Datetime, '%H:%i:%s') FROM " + $"{name}" + " where Datetime between" + $"'{date} 00:00:00'" + " and " + $"'{date} 23:59:59'";
 
             DataTable table = new DataTable();
             MySqlDataReader myReader;
@@ -50,12 +50,12 @@ namespace ConsoleApiDB
             return datareturn;
         }
 
-        // GET api/webapi/name/id
-        [Route("api/{controller}/{name}/{id}")]
+        // GET api/webapi/name/datefrom/dateto
+        [Route("api/{controller}/{name}/{Datefrom}/{Dateto}")]
         [GzipCompressionAtribute]
-        public string GetItemByNameAndId(string name, int id)
+        public string GetItemDateTime(string name, string Datefrom, string Dateto)
         {
-            string query = "select * from " + $"{name}" + " where id = " + $"{id}";
+            string query = "select * from " + $"{name}" + " where `DateTime` between " + $"{Datefrom}" + " and " + $"{Dateto}";
 
             DataTable table = new DataTable();
             MySqlDataReader myReader;
@@ -73,22 +73,6 @@ namespace ConsoleApiDB
 
             datareturn = JsonConvert.SerializeObject(table);
             return datareturn;
-
-        }
-
-        // POST api/webapi
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/webapi/5 
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/webapi/5 
-        public void Delete(int id)
-        {
         }
     }
 }

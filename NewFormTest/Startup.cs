@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Owin;
 
-namespace ConsoleApiDB
+namespace NewFormTest
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace ConsoleApiDB
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 name: "Api-1",
-                routeTemplate: "api/{controller}/{name}/{date}",
+                routeTemplate: "api/{controller}/{name}",
                 defaults: new { id = RouteParameter.Optional }
                );
             config.Routes.MapHttpRoute(
@@ -38,11 +38,7 @@ namespace ConsoleApiDB
                 routeTemplate: "api/{controller}/{name}/{id}",
                 defaults: new { id = RouteParameter.Optional }
              );
-            config.Routes.MapHttpRoute(
-                name: "Api-3",
-                routeTemplate: "api/{controller}/{name}/{Datefrom}/{Dateto}",
-                defaults: new { id = RouteParameter.Optional }
-                );
+
             // Web Api
             app.UseWebApi( config );
         }
