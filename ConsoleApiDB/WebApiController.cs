@@ -23,16 +23,17 @@ namespace ConsoleApiDB
 
         // Connect MySQL Database
         string datareturn;
+        DataTable table = new DataTable();
         string connStr = "server=127.0.0.1;user=root;database=demohmiconnectpc1;port=3306;password=0546";
 
         // GET api/webapi/name
         [Route("api/{controller}/{name}/{date}")]
-        public string GetItemByName(string name, string date)
+        public  DataTable GetItemByName(string name, string date)
         {
 
             string query = "SELECT DATE_FORMAT(Datetime, '%H:%i:%s') FROM " + $"{name}" + " where Datetime between" + $"'{date} 00:00:00'" + " and " + $"'{date} 23:59:59'";
 
-            DataTable table = new DataTable();
+            
             MySqlDataReader myReader;
             using (MySqlConnection mycon = new MySqlConnection(connStr))
             {
@@ -43,11 +44,13 @@ namespace ConsoleApiDB
                     table.Load(myReader);
                     myReader.Close();
                     mycon.Close();
+                   
                 }
             }
-
-            datareturn = JsonConvert.SerializeObject(table);
-            return datareturn;
+          
+            //datareturn = JsonConvert.SerializeObject(table);
+          
+            return table;
         }
 
         // GET api/webapi/name/datefrom/dateto

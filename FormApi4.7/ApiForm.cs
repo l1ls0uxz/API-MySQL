@@ -71,7 +71,14 @@ namespace FormApi4._7
                 cbxName.Text.ToString(),
                 dateTimePicker2.Value.ToString("yyyy-MM-dd"));
                 //cbxName.DataSource = responce;
-                cbxTime.Items.Add(responce);
+                string json = Helper.BeautifyJson(responce);
+
+                DataTable tableTime = JsonConvert.DeserializeObject<DataTable>(json);
+
+                cbxTime.DataSource = tableTime;
+                cbxTime.DisplayMember = "DATE_FORMAT(Datetime, '%H:%i:%s')";
+                cbxTime.ValueMember = "DATE_FORMAT(Datetime, '%H:%i:%s')";
+
                 MessageBox.Show("oki!");
             }
             else

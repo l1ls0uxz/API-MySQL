@@ -35,11 +35,11 @@
             this.cbxName = new System.Windows.Forms.ComboBox();
             this.pnReport = new System.Windows.Forms.Panel();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.cbxTime = new System.Windows.Forms.ComboBox();
             this.ckbReport = new System.Windows.Forms.CheckBox();
             this.btnGet = new System.Windows.Forms.Button();
             this.dtView = new System.Windows.Forms.RichTextBox();
             this.btnGet2 = new System.Windows.Forms.Button();
+            this.cbxTime = new System.Windows.Forms.ComboBox();
             this.grbButton.SuspendLayout();
             this.pnTime.SuspendLayout();
             this.pnReport.SuspendLayout();
@@ -47,7 +47,6 @@
             // 
             // grbButton
             // 
-            this.grbButton.Controls.Add(this.pnTime);
             this.grbButton.Controls.Add(this.cbxName);
             this.grbButton.Controls.Add(this.pnReport);
             this.grbButton.Controls.Add(this.ckbReport);
@@ -65,7 +64,7 @@
             this.pnTime.Controls.Add(this.dateTo);
             this.pnTime.Controls.Add(this.dateFrom);
             this.pnTime.Controls.Add(this.btnGet);
-            this.pnTime.Location = new System.Drawing.Point(390, 20);
+            this.pnTime.Location = new System.Drawing.Point(413, 389);
             this.pnTime.Name = "pnTime";
             this.pnTime.Size = new System.Drawing.Size(559, 57);
             this.pnTime.TabIndex = 10;
@@ -76,7 +75,7 @@
             this.dateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTo.Location = new System.Drawing.Point(228, 15);
             this.dateTo.Name = "dateTo";
-            this.dateTo.Size = new System.Drawing.Size(186, 21);
+            this.dateTo.Size = new System.Drawing.Size(186, 20);
             this.dateTo.TabIndex = 7;
             this.dateTo.Value = new System.DateTime(2023, 3, 13, 11, 34, 0, 0);
             // 
@@ -86,7 +85,7 @@
             this.dateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateFrom.Location = new System.Drawing.Point(15, 15);
             this.dateFrom.Name = "dateFrom";
-            this.dateFrom.Size = new System.Drawing.Size(186, 21);
+            this.dateFrom.Size = new System.Drawing.Size(186, 20);
             this.dateFrom.TabIndex = 2;
             this.dateFrom.Value = new System.DateTime(2023, 3, 13, 11, 34, 0, 0);
             // 
@@ -122,14 +121,6 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(126, 21);
             this.dateTimePicker2.TabIndex = 8;
-            // 
-            // cbxTime
-            // 
-            this.cbxTime.FormattingEnabled = true;
-            this.cbxTime.Location = new System.Drawing.Point(282, 15);
-            this.cbxTime.Name = "cbxTime";
-            this.cbxTime.Size = new System.Drawing.Size(121, 23);
-            this.cbxTime.TabIndex = 5;
             // 
             // ckbReport
             // 
@@ -172,11 +163,20 @@
             this.btnGet2.UseVisualStyleBackColor = true;
             this.btnGet2.Click += new System.EventHandler(this.btnGet2_Click);
             // 
+            // cbxTime
+            // 
+            this.cbxTime.FormattingEnabled = true;
+            this.cbxTime.Location = new System.Drawing.Point(282, 15);
+            this.cbxTime.Name = "cbxTime";
+            this.cbxTime.Size = new System.Drawing.Size(121, 23);
+            this.cbxTime.TabIndex = 5;
+            // 
             // ApiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.pnTime);
             this.Controls.Add(this.dtView);
             this.Controls.Add(this.grbButton);
             this.Name = "ApiForm";
@@ -197,7 +197,6 @@
         private System.Windows.Forms.Button btnGet;
         private System.Windows.Forms.CheckBox ckbReport;
         private System.Windows.Forms.RichTextBox dtView;
-        private System.Windows.Forms.ComboBox cbxTime;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Panel pnTime;
         private System.Windows.Forms.Panel pnReport;
@@ -205,6 +204,7 @@
         public System.Windows.Forms.DateTimePicker dateTo;
         public System.Windows.Forms.ComboBox cbxName;
         private System.Windows.Forms.Button btnGet2;
+        private System.Windows.Forms.ComboBox cbxTime;
     }
 }
 
