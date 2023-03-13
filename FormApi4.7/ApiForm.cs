@@ -26,32 +26,61 @@ namespace FormApi4._7
         {
             InitializeComponent();
         }
-
+        // Button Get
         private async void btnGet_Click(object sender, EventArgs e)
         {
-            //HttpClient clientt = new HttpClient();
-            //clientt.BaseAddress = new Uri("http://localhost:13245/api/webapi/coder");
-            //HttpResponseMessage response = clientt.GetAsync("coder").Result;
-            var responce = await Helper.GetAll();
+            var responce = await Helper.GetAll(
+                cbxName.Text.ToString(),
+                dateFrom.Value.ToString("yyyy-MM-dd HH:mm:ss"), 
+                dateTo.Value.ToString("yyyy-MM-dd HH:mm:ss")
+                );
             dtView.Text = Helper.BeautifyJson(responce);
-
-            //string url = "https://localhost:12345/api/webapi/coder";
-            //HttpClient client = new HttpClient();
-            //HttpResponseMessage response = await client.GetAsync(url);
-            //string responseBody = await response.Content.ReadAsStringAsync();
-            //dynamic data = JsonConvert.DeserializeObject(responseBody);
-            //MessageBox.Show(JsonConvert.SerializeObject(data, Formatting.Indented));
-            //dtView.DataSource = data;
+            
+        }
+        private void btnGet2_Click(object sender, EventArgs e)
+        {
         }
 
         private void ApiForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void grbButton_Enter(object sender, EventArgs e)
         {
+        }
+
+        // Checked status
+        private void ckbReport_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ckbReport.Checked)
+            {
+                pnTime.Visible = false;
+                pnReport.Visible = true;
+            }
+            else { 
+                pnTime.Visible = true; 
+                pnReport.Visible = false; 
+            }
+        }
+
+        private async void cbxName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ckbReport.Checked)
+            {
+                var responce = await Helper.GetTable(
+                cbxName.Text.ToString(),
+                dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                //cbxName.DataSource = responce;
+                cbxTime.Items.Add(responce);
+                MessageBox.Show("oki!");
+            }
+            else
+            {
+                
+            }
 
         }
+
+        
     }
 }

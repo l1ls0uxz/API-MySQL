@@ -12,20 +12,20 @@ using System.Web.Http;
 using System.Web.Http.Results;
 using System.IO.Compression;
 using System.IO;
-using FormApi4._7.Filters;
-using System.Windows.Forms;
+//using NewFormTest.Filters;
 
-namespace FormApi4._7
+namespace NewFormTest
 {
     public class WebApiController : ApiController
     {
+        
+
         // Connect MySQL Database
         string datareturn;
         string connStr = "server=127.0.0.1;user=root;database=demohmiconnectpc1;port=3306;password=0546";
 
         // GET api/webapi/name
         [Route("api/{controller}/{name}")]
-        //[GzipCompressionAtribute]
         public string GetItemByName(string name)
         {
 
@@ -51,6 +51,7 @@ namespace FormApi4._7
 
         // GET api/webapi/name/id
         [Route("api/{controller}/{name}/{id}")]
+        //[GzipCompressionAtribute]
         public string GetItemByNameAndId(string name, int id)
         {
             string query = "select * from " + $"{name}" + " where id = " + $"{id}";
@@ -71,30 +72,8 @@ namespace FormApi4._7
 
             datareturn = JsonConvert.SerializeObject(table);
             return datareturn;
+
         }
-        // GET api/webapi/name/id
-        //[Route("api/{controller}/{name}/{date}/{time}")]
-        //public string GetItemByDateTime(string name, int date, int time)
-        //{
-        //    string query = "select * from " + ;
-
-        //    DataTable table = new DataTable();
-        //    MySqlDataReader myReader;
-        //    using (MySqlConnection mycon = new MySqlConnection(connStr))
-        //    {
-        //        mycon.Open();
-        //        using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
-        //        {
-        //            myReader = myCommand.ExecuteReader();
-        //            table.Load(myReader);
-        //            myReader.Close();
-        //            mycon.Close();
-        //        }
-        //    }
-
-        //    datareturn = JsonConvert.SerializeObject(table);
-        //    return datareturn;
-        //}
 
         // POST api/webapi
         public void Post([FromBody] string value)
