@@ -17,9 +17,11 @@ namespace FormApi4_7.Shared
         private static readonly string baseURl = "http://localhost:12345/api/webapi/";
         public static async Task<string> GetAll(string name,string datefrom, string dateto)
         {
-            await Task.Delay(1000);
-            using (HttpClient client = new HttpClient(new HttpClientHandler {
-                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate })) 
+            
+            using (HttpClient client = new HttpClient(new HttpClientHandler 
+            {
+                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate 
+            })) 
             {
                 using (HttpResponseMessage res = await client.GetAsync(baseURl + $"{name}" + $"/'{datefrom}'" + $"/'{dateto}'"))
                 {
@@ -37,9 +39,10 @@ namespace FormApi4_7.Shared
             }
             return string.Empty;
         }
+
         public static async Task<string> GetTable(string name, string date)
         {
-            await Task.Delay(1000);
+            
             using (HttpClient client = new HttpClient(new HttpClientHandler
             {
                 AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
@@ -61,6 +64,31 @@ namespace FormApi4_7.Shared
             }
             return string.Empty;
         }
+
+        public static async Task<string> GetDateTime(string name, string datereport, string time, bool check)
+        {
+            using (HttpClient client = new HttpClient(new HttpClientHandler
+            {
+                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
+            }))
+            {
+                using (HttpResponseMessage res = await client.GetAsync(baseURl + $"{name}" + $"/{datereport}" + $"/{time}" + $"/'{check}'"))
+                {
+                    using (HttpContent content = res.Content)
+                    {
+                        string data = await content.ReadAsStringAsync();
+
+                        if (data != null)
+                        {
+
+                            return data;
+                        }
+                    }
+                }
+            }
+            return string.Empty;
+        }
+
         public static string BeautifyJson(string jsonStr)
         {
             JToken parseJson = JToken.Parse(jsonStr);

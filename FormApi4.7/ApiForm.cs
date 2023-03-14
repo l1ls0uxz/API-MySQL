@@ -29,16 +29,25 @@ namespace FormApi4._7
         // Button Get
         private async void btnGet_Click(object sender, EventArgs e)
         {
-            var responce = await Helper.GetAll(
-                cbxName.Text.ToString(),
-                dateFrom.Value.ToString("yyyy-MM-dd HH:mm:ss"), 
-                dateTo.Value.ToString("yyyy-MM-dd HH:mm:ss")
-                );
-            dtView.Text = Helper.BeautifyJson(responce);
+           var responce = await Helper.GetAll(
+               cbxName.Text.ToString(),
+               dateFrom.Value.ToString("yyyy-MM-dd HH:mm:ss"), 
+               dateTo.Value.ToString("yyyy-MM-dd HH:mm:ss")
+               );
+           dtView.Text = Helper.BeautifyJson(responce);
             
         }
-        private void btnGet2_Click(object sender, EventArgs e)
+        // Button Get 2
+        private async void btnGet2_Click(object sender, EventArgs e)
         {
+            string adb = cbxTime.SelectedValue.ToString();
+            var responce = await Helper.GetDateTime(
+                cbxName.Text.ToString(),
+                dateReport.Value.ToString("yyyy-MM-dd"),
+                cbxTime.Text.ToString(),
+                true
+                );
+            dtView.Text = Helper.BeautifyJson(responce);
         }
 
         private void ApiForm_Load(object sender, EventArgs e)
@@ -69,22 +78,19 @@ namespace FormApi4._7
             {
                 var responce = await Helper.GetTable(
                 cbxName.Text.ToString(),
-                dateTimePicker2.Value.ToString("yyyy-MM-dd"));
+                dateReport.Value.ToString("yyyy-MM-dd"));
                 //cbxName.DataSource = responce;
                 string json = Helper.BeautifyJson(responce);
-
+                // convert json to DataTable
                 DataTable tableTime = JsonConvert.DeserializeObject<DataTable>(json);
-
+                // 
                 cbxTime.DataSource = tableTime;
                 cbxTime.DisplayMember = "DATE_FORMAT(Datetime, '%H:%i:%s')";
                 cbxTime.ValueMember = "DATE_FORMAT(Datetime, '%H:%i:%s')";
-
+                // show messageBox
                 MessageBox.Show("oki!");
             }
-            else
-            {
-                
-            }
+            
 
         }
 

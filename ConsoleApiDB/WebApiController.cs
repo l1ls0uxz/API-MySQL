@@ -14,13 +14,13 @@ using System.IO.Compression;
 using System.IO;
 using ConsoleApiDB.Filters;
 using System.Xml.Linq;
+using System.Drawing;
+using System.Xml;
 
 namespace ConsoleApiDB
 {
     public class WebApiController : ApiController
     {
-        
-
         // Connect MySQL Database
         string datareturn;
         DataTable table = new DataTable();
@@ -47,9 +47,7 @@ namespace ConsoleApiDB
                    
                 }
             }
-          
             //datareturn = JsonConvert.SerializeObject(table);
-          
             return table;
         }
 
@@ -74,6 +72,27 @@ namespace ConsoleApiDB
                 }
             }
 
+            datareturn = JsonConvert.SerializeObject(table);
+            return datareturn;
+        }
+
+        [Route("api/{controller}/{name}/{Datereport}/{Time}/{check}")]
+        [GzipCompressionAtribute]
+        public string GetDateTime(string name , string datereport, string time)
+        {
+            string query = "select * from " + $"{name}" + " where `DateTime` = " + $"'{datereport}" + " " + $"{time}'";
+            MySqlDataReader myReader;
+            using (MySqlConnection mycon = new MySqlConnection(connStr))
+            {
+                mycon.Open();
+                using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
+                {
+                    myReader = myCommand.ExecuteReader();
+                    table.Load(myReader);
+                    myReader.Close();
+                    mycon.Close();
+                }
+            }
             datareturn = JsonConvert.SerializeObject(table);
             return datareturn;
         }

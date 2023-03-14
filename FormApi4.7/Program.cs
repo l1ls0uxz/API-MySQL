@@ -16,7 +16,6 @@ namespace FormApi4._7
         [STAThread]
         static void Main()
         {
-            //using (WebApp.Start<Startup>("http://localhost:12345"))
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ApiForm());

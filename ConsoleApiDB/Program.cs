@@ -29,7 +29,9 @@ namespace ConsoleApiDB
                 Console.WriteLine(" ||-------------------------------------------------||");
                 Console.WriteLine(" ||   Server is running at http://localhost:12345   ||");
                 Console.WriteLine(" ||                                                 ||");
-                Console.WriteLine(" ||   Press Ctrl + C to quit.                       ||");
+                Console.WriteLine(" ||   Press Ctrl + C to quit...                     ||");
+                Console.WriteLine(" ||                                                 ||");
+                Console.WriteLine(" ||   HondaPlus VN ver 1.5                          ||");
                 Console.WriteLine(" ||-------------------------------------------------||");
                 Console.ReadLine();
             }
@@ -46,8 +48,9 @@ namespace ConsoleApiDB
             // 
             // Program
             // 
-            this.ClientSize = new System.Drawing.Size(614, 440);
+            this.ClientSize = new System.Drawing.Size(500, 500);
             this.Name = "Program";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Program_Load);
             this.ResumeLayout(false);
 
