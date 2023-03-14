@@ -72,29 +72,6 @@ namespace FormApi4._7
             datareturn = JsonConvert.SerializeObject(table);
             return datareturn;
         }
-        // GET api/webapi/name/id
-        //[Route("api/{controller}/{name}/{date}/{time}")]
-        //public string GetItemByDateTime(string name, int date, int time)
-        //{
-        //    string query = "select * from " + ;
-
-        //    DataTable table = new DataTable();
-        //    MySqlDataReader myReader;
-        //    using (MySqlConnection mycon = new MySqlConnection(connStr))
-        //    {
-        //        mycon.Open();
-        //        using (MySqlCommand myCommand = new MySqlCommand(query, mycon))
-        //        {
-        //            myReader = myCommand.ExecuteReader();
-        //            table.Load(myReader);
-        //            myReader.Close();
-        //            mycon.Close();
-        //        }
-        //    }
-
-        //    datareturn = JsonConvert.SerializeObject(table);
-        //    return datareturn;
-        //}
 
         // POST api/webapi
         public void Post([FromBody] string value)
